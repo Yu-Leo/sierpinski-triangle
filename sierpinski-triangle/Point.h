@@ -7,6 +7,8 @@ public:
 		this->y = y;
 	}
 
+	Point() : Point(0, 0) {}
+
 	const int getX() {
 		return this->x;
 	}
