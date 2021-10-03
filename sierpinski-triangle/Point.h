@@ -31,7 +31,6 @@ public:
 	const void draw(sf::RenderWindow& window);
 
 private:
-	const float POINT_SIZE = 5.0f;
 	int x = 0;
 	int y = 0;
 	Type type = Type::SIMPLE;

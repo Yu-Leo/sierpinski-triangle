@@ -9,7 +9,7 @@
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
-const int MAXIMUM_NUMBER_OF_POINTS = 1000;
+const int MAXIMUM_NUMBER_OF_POINTS = 10000;
 
 std::vector<Point> generate_3_vertexes() {
     std::vector<Point> vertexes;
@@ -34,6 +34,7 @@ int main() {
 
     std::vector<Point> vertexes = generate_3_vertexes();
     std::vector<Point> points_list;
+    points_list.push_back(Point(400, 300));
 
     int number_of_points = 0;
     
@@ -45,13 +46,20 @@ int main() {
         }
 
         if (number_of_points < MAXIMUM_NUMBER_OF_POINTS) {
-            points_list.push_back(Point(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT));
+            int n = rand() % 3;
+
+            int x = (vertexes[n].getX() + points_list.back().getX()) / 2;
+            int y = (vertexes[n].getY() + points_list.back().getY()) / 2;
+
+            points_list.push_back(Point(x, y));
+
             number_of_points++;
         }
 
         window.clear(sf::Color::White);
-        draw_points_from_list(window, vertexes);
+       
         draw_points_from_list(window, points_list);
+        draw_points_from_list(window, vertexes);
 
         window.display();
 
