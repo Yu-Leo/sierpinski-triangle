@@ -14,7 +14,8 @@ const int MAXIMUM_NUMBER_OF_POINTS = 1000;
 std::vector<Point> generate_3_vertexes() {
     std::vector<Point> vertexes;
     for (int i = 0; i < 3; i++) {
-        vertexes.push_back(Point(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT));
+        Point p(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT, Point::Type::VERTEX);
+        vertexes.push_back(p);
     }
     return vertexes;
 }

@@ -5,10 +5,18 @@
 class Point {
 public:
 	
-	Point(int x, int y) {
+	enum class Type {
+		VERTEX,
+		SIMPLE
+	};
+
+	Point(int x, int y, Type type) {
 		this->x = x;
 		this->y = y;
+		this->type = type;
 	}
+
+	Point(int x, int y) : Point(x, y, Type::SIMPLE) {}
 
 	Point() : Point(0, 0) {}
 
@@ -23,7 +31,9 @@ public:
 	const void draw(sf::RenderWindow& window);
 
 private:
+	const float POINT_SIZE = 5.0f;
 	int x = 0;
 	int y = 0;
+	Type type = Type::SIMPLE;
 };
 
