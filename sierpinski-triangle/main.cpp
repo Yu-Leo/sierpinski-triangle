@@ -1,10 +1,13 @@
 #include <random>
 #include <iostream>
 #include <vector>
+#include <ctime>
 
 #include <SFML/Graphics.hpp>
 
 #include "Point.h"
+
+#define RANDOM_GENERATING true // (true/false)
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
@@ -27,14 +30,19 @@ void draw_points_from_list(sf::RenderWindow& window, const std::vector<Point>& p
 }
 
 int main() {
-    std::srand(0);
+#if RANDOM_GENERATING
+    srand(int(std::time(NULL))); // Set current time as seed for png
+#else
+    srand(0); // Set seed for pseudorandom number generator
+#endif
+
     sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Sierpinsky triangle");
     window.clear(sf::Color::White);
     window.display();
 
     std::vector<Point> vertexes = generate_3_vertexes();
     std::vector<Point> points_list;
-    points_list.push_back(Point(400, 300));
+    points_list.push_back(Point(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT));
 
     int number_of_points = 0;
     
@@ -63,7 +71,7 @@ int main() {
 
         window.display();
 
-        sf::sleep(sf::milliseconds(10));
+        sf::sleep(sf::milliseconds(1));
     }
     return 0;
 }
