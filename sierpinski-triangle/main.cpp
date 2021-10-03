@@ -9,6 +9,8 @@
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
+const int N = 1000;
+
 int main() {
     
     std::srand(0);
@@ -21,20 +23,31 @@ int main() {
         vertexes.push_back(Point(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT));
     }
 
+    std::vector<Point> points_list;
+
+    int k = 0;
+    
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        if (k < N) {
+            points_list.push_back(Point(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT));
+            k++;
+        }
 
         window.clear(sf::Color::White);
-        for (auto p : vertexes) {
-            sf::CircleShape shape(5.0f);
-            shape.setFillColor(sf::Color::Blue);
-            shape.setPosition(sf::Vector2f(float(p.getX()), float(p.getY())));
-            window.draw(shape);
+
+        for (Point p : vertexes) {
+            p.draw(window);
         }
+
+        for (Point p : points_list) {
+            p.draw(window);
+        }
+
         window.display();
 
         sf::sleep(sf::milliseconds(80));
