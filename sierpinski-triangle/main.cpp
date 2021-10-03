@@ -11,13 +11,15 @@
 
 int main() {
     
-    std::srand(100);
-
+    std::srand(0);
     sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Sierpinsky triangle");
     window.clear(sf::Color::White);
     window.display();
 
-    std::vector<Point> points_list;
+    std::vector<Point> vertexes;
+    for (int i = 0; i < 3; i++) {
+        vertexes.push_back(Point(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT));
+    }
 
     while (window.isOpen()) {
         sf::Event event;
@@ -26,10 +28,8 @@ int main() {
                 window.close();
         }
 
-        points_list.push_back(Point(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT));
-
         window.clear(sf::Color::White);
-        for (auto p : points_list) {
+        for (auto p : vertexes) {
             sf::CircleShape shape(5.0f);
             shape.setFillColor(sf::Color::Blue);
             shape.setPosition(sf::Vector2f(float(p.getX()), float(p.getY())));
