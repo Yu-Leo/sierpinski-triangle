@@ -25,7 +25,7 @@ std::vector<Dot> generate_3_vertexes() {
         |    2   |    3    |
         |        |         |
         --------------------
-        Points generates in this three zones.
+        Dots generates in this three zones.
     */
     
     Dot p1(WINDOW_WIDTH / 4 + rand() % (WINDOW_WIDTH / 2),
@@ -44,8 +44,8 @@ std::vector<Dot> generate_3_vertexes() {
     return vertexes;
 }
 
-void draw_points_from_list(sf::RenderWindow& window, const std::vector<Dot>& points_list) {
-    for (Dot p : points_list) {
+void draw_dots_from_list(sf::RenderWindow& window, const std::vector<Dot>& dots_list) {
+    for (Dot p : dots_list) {
         p.draw(window);
     }
 }
@@ -53,7 +53,7 @@ void draw_points_from_list(sf::RenderWindow& window, const std::vector<Dot>& poi
 void draw_zone_lines(sf::RenderWindow& window) {
     // Draw test lines for visualization zones.
     sf::Color color = sf::Color::Green;
-    int thickness = 2;
+    float thickness = 2;
 
     sf::RectangleShape line1(sf::Vector2f(WINDOW_WIDTH, thickness));
     line1.setPosition(0, WINDOW_HEIGHT / 2);
@@ -119,8 +119,8 @@ int main() {
        
         draw_zone_lines(window);
 
-        draw_points_from_list(window, dots_list);
-        draw_points_from_list(window, vertexes);
+        draw_dots_from_list(window, dots_list);
+        draw_dots_from_list(window, vertexes);
 
         window.display();
 
