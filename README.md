@@ -35,9 +35,9 @@
 
 <a id="chapter-2"></a>
 
-## :camera: Интерфейс
+## :camera: Демонстрация
 
-![main_menu](./docs/img/main-menu.jpg)
+![demo](./docs/img/demo.jpg)
 
 <a id="chapter-3"></a>
 
