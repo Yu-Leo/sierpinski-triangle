@@ -50,36 +50,6 @@ void draw_dots_from_list(sf::RenderWindow& window, const std::vector<Dot>& dots_
     }
 }
 
-void draw_zone_lines(sf::RenderWindow& window) {
-    // Draw test lines for visualization zones.
-    sf::Color color = sf::Color::Green;
-    float thickness = 2;
-
-    sf::RectangleShape line1(sf::Vector2f(WINDOW_WIDTH, thickness));
-    line1.setPosition(0, WINDOW_HEIGHT / 2);
-    line1.setFillColor(color);
-    window.draw(line1);
-
-    sf::RectangleShape line2(sf::Vector2f(WINDOW_HEIGHT / 2, thickness));
-    line2.rotate(90);
-    line2.setPosition(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
-    line2.setFillColor(color);
-    window.draw(line2);
-
-    sf::RectangleShape line3(sf::Vector2f(WINDOW_HEIGHT / 2, thickness));
-    line3.rotate(90);
-    line3.setPosition(WINDOW_WIDTH / 4, 0);
-    line3.setFillColor(color);
-    window.draw(line3);
-
-    sf::RectangleShape line4(sf::Vector2f(WINDOW_HEIGHT / 2, thickness));
-    line4.rotate(90);
-    line4.setPosition(3 * WINDOW_WIDTH / 4, 0);
-    line4.setFillColor(color);
-    window.draw(line4);
-
-}
-
 int main() {
 #if RANDOM_GENERATING
     srand(int(std::time(NULL))); // Set current time as seed for png
@@ -116,8 +86,6 @@ int main() {
         }
 
         window.clear(sf::Color::White);
-       
-        draw_zone_lines(window);
 
         draw_dots_from_list(window, dots_list);
         draw_dots_from_list(window, vertexes);
