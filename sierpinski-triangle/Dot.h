@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-class Point {
+class Dot {
 public:
 	
 	enum class Type {
@@ -10,15 +10,15 @@ public:
 		SIMPLE
 	};
 
-	Point(int x, int y, Type type) {
+	Dot(int x, int y, Type type) {
 		this->x = x;
 		this->y = y;
 		this->type = type;
 	}
 
-	Point(int x, int y) : Point(x, y, Type::SIMPLE) {}
+	Dot(int x, int y) : Dot(x, y, Type::SIMPLE) {}
 
-	Point() : Point(0, 0) {}
+	Dot() : Dot(0, 0) {}
 
 	const int getX() {
 		return this->x;

@@ -1,6 +1,6 @@
-#include "Point.h"
+#include "Dot.h"
 
-const void Point::draw(sf::RenderWindow& window) {
+const void Dot::draw(sf::RenderWindow& window) {
     
     sf::Color color;
     float size;
