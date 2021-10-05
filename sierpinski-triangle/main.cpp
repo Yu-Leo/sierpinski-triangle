@@ -28,25 +28,25 @@ std::vector<Dot> generate_3_vertexes() {
         Dots generates in this three zones.
     */
     
-    Dot p1(WINDOW_WIDTH / 4 + rand() % (WINDOW_WIDTH / 2),
+    Dot d1(WINDOW_WIDTH / 4 + rand() % (WINDOW_WIDTH / 2),
         rand() % (WINDOW_HEIGHT / 2), Dot::Type::VERTEX);
 
-    Dot p2(rand() % (WINDOW_WIDTH / 2),
+    Dot d2(rand() % (WINDOW_WIDTH / 2),
         (WINDOW_HEIGHT / 2) + rand() % (WINDOW_HEIGHT / 2), Dot::Type::VERTEX);
 
-    Dot p3(WINDOW_WIDTH / 2 + rand() % (WINDOW_WIDTH / 2),
+    Dot d3(WINDOW_WIDTH / 2 + rand() % (WINDOW_WIDTH / 2),
         (WINDOW_HEIGHT / 2) + rand() % (WINDOW_HEIGHT / 2), Dot::Type::VERTEX);
 
-    vertexes.push_back(p1);
-    vertexes.push_back(p2);
-    vertexes.push_back(p3);
+    vertexes.push_back(d1);
+    vertexes.push_back(d2);
+    vertexes.push_back(d3);
 
     return vertexes;
 }
 
 void draw_dots_from_list(sf::RenderWindow& window, const std::vector<Dot>& dots_list) {
-    for (Dot p : dots_list) {
-        p.draw(window);
+    for (Dot d : dots_list) {
+        d.draw(window);
     }
 }
 
@@ -65,7 +65,7 @@ int main() {
     std::vector<Dot> dots_list;
     dots_list.push_back(Dot(rand() % WINDOW_WIDTH, rand() % WINDOW_HEIGHT));
 
-    int number_of_points = 0;
+    int number_of_dots = 0;
     
     while (window.isOpen()) {
         sf::Event event;
@@ -74,7 +74,7 @@ int main() {
                 window.close();
         }
 
-        if (number_of_points < MAXIMUM_NUMBER_OF_POINTS) {
+        if (number_of_dots < MAXIMUM_NUMBER_OF_POINTS) {
             int n = rand() % 3;
 
             int x = (vertexes[n].getX() + dots_list.back().getX()) / 2;
@@ -82,7 +82,7 @@ int main() {
 
             dots_list.push_back(Dot(x, y));
 
-            number_of_points++;
+            number_of_dots++;
         }
 
         window.clear(sf::Color::White);
