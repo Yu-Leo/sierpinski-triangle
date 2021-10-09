@@ -78,3 +78,4 @@
 GNU General Public License v3.0
 
 Полный текст в [LICENSE](LICENSE)
+
