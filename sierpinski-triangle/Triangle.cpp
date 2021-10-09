@@ -35,6 +35,11 @@ bool Triangle::are_all_dots_generated() {
 }
 
 void Triangle::add_dot() {
+    /*
+        Ñhoose random vertex and draw new dot in the middle between it and
+        the previous dot.
+    */
+
     int n = rand() % 3;
 
     int x = (vertexes[n].getX() + dots_list.back().getX()) / 2;

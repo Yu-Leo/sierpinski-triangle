@@ -3,7 +3,7 @@
 const void Dot::draw(sf::RenderWindow& window) {
     
     sf::Color color;
-    float size;
+    float size = 10.0f;
     switch (this->type) {
     case Type::VERTEX:
         color = sf::Color::Red;
