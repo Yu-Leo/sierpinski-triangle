@@ -24,7 +24,16 @@ int main() {
     window.display();
 
     Triangle triangle(Size(WINDOW_WIDTH, WINDOW_HEIGHT));
-    
+
+    sf::Font font; // Font for titles
+    sf::Text score_text;
+
+    font.loadFromFile("./fonts/font.ttf");
+
+    score_text.setFont(font);
+    score_text.setCharacterSize(35);
+    score_text.setFillColor(sf::Color::Black);
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -39,7 +48,15 @@ int main() {
 
         window.clear(sf::Color::White);
         triangle.draw(window);
+
+        score_text.setString("N: ");
+        score_text.setPosition(
+            WINDOW_WIDTH - score_text.getLocalBounds().width - 20, 7);
+        window.draw(score_text);
+
+
         window.display();
+
 
         sf::sleep(sf::milliseconds(1));
     }
