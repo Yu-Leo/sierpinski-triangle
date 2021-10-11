@@ -12,7 +12,18 @@
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
+
+void set_current_number_of_dots_text_settings(sf::Text & current_number_of_dots_text,
+    const sf::Font & font) {
+
+    current_number_of_dots_text.setFont(font);
+    current_number_of_dots_text.setCharacterSize(35);
+    current_number_of_dots_text.setFillColor(sf::Color::Black);
+    current_number_of_dots_text.setPosition(20, 10);
+}
+
 int main() {
+
 #if RANDOM_GENERATING
     srand(int(std::time(NULL))); // Set current time as seed for png
 #else
@@ -25,14 +36,11 @@ int main() {
 
     Triangle triangle(Size(WINDOW_WIDTH, WINDOW_HEIGHT));
 
-    sf::Font font; // Font for titles
-    sf::Text score_text;
-
+    sf::Font font; // Font for text
     font.loadFromFile("./fonts/font.ttf");
 
-    score_text.setFont(font);
-    score_text.setCharacterSize(35);
-    score_text.setFillColor(sf::Color::Black);
+    sf::Text current_number_of_dots_text;
+    set_current_number_of_dots_text_settings(current_number_of_dots_text, font);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -49,16 +57,12 @@ int main() {
         window.clear(sf::Color::White);
         triangle.draw(window);
 
-        score_text.setString("N: ");
-        score_text.setPosition(
-            WINDOW_WIDTH - score_text.getLocalBounds().width - 20, 7);
-        window.draw(score_text);
-
+        current_number_of_dots_text.setString("N: " + std::to_string(triangle.get_current_number_of_dots()));        
+        window.draw(current_number_of_dots_text);
 
         window.display();
 
-
-        sf::sleep(sf::milliseconds(1));
+        sf::sleep(sf::milliseconds(10));
     }
     return 0;
 }
