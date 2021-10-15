@@ -53,6 +53,10 @@ const void Triangle::draw(sf::RenderWindow& window) {
     this->draw_dots_from_list(window, vertexes);
 }
 
+const int Triangle::get_current_number_of_dots() {
+    return int(this->dots_list.size());
+}
+
 const void Triangle::draw_dots_from_list(sf::RenderWindow& window,
     const std::vector<Dot>& dots_list) {
 
