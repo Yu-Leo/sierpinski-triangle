@@ -25,7 +25,7 @@ public:
     const int get_current_number_of_dots();
 
 private:
-    const int MAXIMUM_NUMBER_OF_POINTS = 1000;
+    const int MAXIMUM_NUMBER_OF_POINTS = 2000;
     Size window_size;
     std::vector<Dot> vertexes;
     std::vector<Dot> dots_list;
