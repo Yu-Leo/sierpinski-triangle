@@ -37,7 +37,7 @@
       cd sierpinski-triangle
       ```
    * Вариант 2 - [Скачать ZIP](https://github.com/Yu-Leo/sierpinski-triangle/archive/refs/heads/main.zip)
-4. Подключить SFML к проекту ([мой туториал](https://github.com/Yu-Leo/tutorials-and-config-files/blob/main/SFML-VisualStudio2019/README.md))
+4. Подключить SFML к проекту ([мой туториал](https://github.com/Yu-Leo/knowledge-base/blob/main/SFML-VisualStudio2019/README.md))
 5. Скомпилировать и запустить `./sierpinski-triangle/main.cpp`
 
 <a id="chapter-2"></a>
